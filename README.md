@@ -1,6 +1,6 @@
 # Cara-Drumstick-Bug.github.io
 
-Gitpage 規則 優先吃檔名為 README.md 為首頁，次之吃 index.html 其餘似乎不會自動。
+Gitpage 規則 優先吃先上傳，檔名為 README.md 或 index.html 為首頁，其餘似乎不會自動。
 
 ---
 
