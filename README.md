@@ -2,6 +2,14 @@
 
 Gitpage 規則 優先吃先上傳，檔名為 README.md 或 index.html 為首頁，其餘似乎不會自動。
 
+<https://oberonlai.blog/tw/%E6%8B%AF%E6%95%91%E4%BA%BA%E7%94%9F%E7%9A%84%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E6%9B%B8/>
+
+<https://oberonlai.blog/tw/how-to-write-the-effective-specification/>
+
+<https://oberonlai.blog/tw/how-do-i-make-a-quotation/>
+
+<https://oberonlai.blog/tw/how-can-oberon-help-you/>
+
 ---
 
 前台
