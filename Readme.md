@@ -1,5 +1,9 @@
 # Cara-Drumstick-Bug.github.io
 
+Gitpage 規則 優先吃檔名為 README.md 為首頁，次之吃 index.html 其餘似乎不會自動。
+
+---
+
 前台
 
 一頁式
@@ -8,7 +12,7 @@
 
 最後才顯示無限筆無整理的案例 隨機抽五個推薦 (特價促銷 ?之類的)
 
-其他頁面 sitemap  
+其他頁面 sitemap
 
 天矽 依模組功能 或
 
