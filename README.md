@@ -34,11 +34,13 @@ Gitpage 規則 優先吃先上傳，檔名為 README.md 或 index.html 為首頁
 
 其他頁面 sitemap
 
-天矽 依模組功能 或
+tansi sinda 依模組功能 或
 
 <https://www.tsg.com.tw/>
 
-海納川 依系統類型
+<https://www.shinda.com.tw/>
+
+hanachain 依系統類型
 
 <https://www.24hosting.com.tw/>
 
