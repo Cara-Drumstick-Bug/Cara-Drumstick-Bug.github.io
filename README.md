@@ -1,3 +1,9 @@
+為什麼?如何?要被動接案不主動 ?
+
+<https://www.youtube.com/watch?v=nDkend5qjLY&ab_channel=%E5%85%AD%E6%8C%87%E6%B7%B5Huber>
+
+---
+
 # Cara-Drumstick-Bug.github.io
 
 1. first step set site map used github page with jekyll
