@@ -1,3 +1,7 @@
+User Stories和Use cases的差別
+
+<https://kojenchieh.pixnet.net/blog/post/75411502>
+
 ---
 
 如規格會大到需要 UAT 可以送派遣天數之類的，感覺不必學其他系統商，可以自己跟客戶談條件
