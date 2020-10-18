@@ -7,9 +7,17 @@
     <title>SecurityAudit</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <style>
+        body {
+            padding: 7%;
+        }
+    </style>
 </head>
 
-<body style="padding: 7%;">
+<!-- <body onload="startTime()"> -->
+
+<body>
+    <div id="clock"></div>
     <h1 class="display-3">SecurityAudit</h1>
     <hr class="w-100" />
     <div class="row">
@@ -233,6 +241,53 @@
 
 
         });
+    </script>
+    <script>
+        // https://matthung0807.blogspot.com/2017/08/javascript.html
+
+        function startTime() {
+            // console.log((new Date() - StartTime));
+            if ((new Date() - StartTime) > 5000000) {
+                document.location.href = "/Case/GoogleSheetFilter/index.html";
+            }
+            var timeoutId = setTimeout(startTime, 500);
+        }
+
+        var StartTime = new Date();
+        var hh = StartTime.getHours();
+        var mm = StartTime.getMinutes();
+        var ss = StartTime.getSeconds();
+        mm = checkTime(mm);
+        ss = checkTime(ss);
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        document.getElementById('clock').innerHTML = "StartTime：" + hh + ":" + mm + ":" + ss;
+
+        // https://www.runoob.com/w3cnote/js-get-url-param.html
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        if (getQueryVariable("name") === 'admin') {
+            // alert('Welcome to Use SecurityAudit Sheet Filter !!');
+        } else {
+            alert('!!! Login Please !!!');
+            document.location.href = "/Case/GoogleSheetFilter/index.html";
+        }
     </script>
 </body>
 

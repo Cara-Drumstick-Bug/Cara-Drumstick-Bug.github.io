@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <style>
+
+    </style>
+</head>
+
+<body class="container">
+    <!-- https://pjchender.blogspot.com/2015/11/javascript.html -->
+    <!-- https://andy6804tw.github.io/2018/01/06/bootstrap-tutorial(1)/ -->
+    <div class="row justify-content-center" style="height:100vh;">
+        <div class="align-self-center">
+            <label for="Password">Admin：</label>
+            <input type="password" id="Password" placeholder="Password">
+            <button id="CheckButton" type="button" class="btn badge badge-primary" onclick="check()">驗證</button>
+        </div>
+    </div>
+    <script>
+        function check(params) {
+            const InputPassword = document.getElementById("Password");
+            console.log(InputPassword);
+            console.log(InputPassword.value);
+            InputPassword.value = InputPassword.value.toLowerCase();
+            console.log(InputPassword.value);
+
+            if (InputPassword.value === 'admin') {
+                // https://www.wibibi.com/info.php?tid=153
+                document.location.href = "/Case/GoogleSheetFilter/Sheet1.html?name=admin";
+            } else {
+                // https://www.cnblogs.com/LiuWeiLong/p/6058059.html
+                const CheckButton = document.getElementById("CheckButton");
+                CheckButton.setAttribute('style', 'background-color: red !important');
+                InputPassword.value = "";
+                // https://www.w3school.com.cn/htmldom/met_textarea_focus.asp
+                InputPassword.focus();
+            }
+        }
+    </script>
+</body>
+
+</html>
