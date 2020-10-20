@@ -284,6 +284,10 @@
 
         if (getQueryVariable("name") === 'admin') {
             // alert('Welcome to Use SecurityAudit Sheet Filter !!');
+            // https://blog.csdn.net/muzidigbig/article/details/101523197
+            var url = window.location.href;
+            var valiable = url.split("?")[0];
+            window.history.pushState({}, 0, valiable);
         } else {
             alert('!!! Login Please !!!');
             document.location.href = "/Case/GoogleSheetFilter/index.html";
