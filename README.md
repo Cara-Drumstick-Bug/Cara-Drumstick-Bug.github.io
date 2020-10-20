@@ -1,3 +1,19 @@
+Sample
+
+<https://www.ready-market.com/>
+
+<https://begonia-design.com.tw/>
+
+<https://link.medium.com/OggFvZ69Iab>
+
+<https://free.phpshop.com.tw/shop.php?html=action3&Fid=11500>
+
+<https://www.uisdc.com/start-design-studio-from-zero>
+
+<https://developers.google.com/sheets/api/guides/migration#v3-api_1>
+
+---
+
 User Stories和Use cases的差別
 
 <https://kojenchieh.pixnet.net/blog/post/75411502>
