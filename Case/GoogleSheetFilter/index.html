@@ -16,11 +16,41 @@
     <!-- https://andy6804tw.github.io/2018/01/06/bootstrap-tutorial(1)/ -->
     <div class="row justify-content-center" style="height:100vh;">
         <div class="align-self-center">
+            <div id="myDiv"></div>
             <label for="Password">Admin：</label>
             <input type="password" id="Password" placeholder="Password">
             <button id="CheckButton" type="button" class="btn badge badge-primary" onclick="check()">驗證</button>
         </div>
     </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+    <script>
+        $(document).ready(function() {
+            var urlFirst = 'https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/';
+            var sheetIndex = 1;
+            var urlLast = '/public/values?alt=json'
+            var htmlobj = {
+                "responseText": ""
+            };
+            var sheetName = [];
+            while (htmlobj.responseText !== "對 grid_id 無效的查詢參數值。") {
+                var url = urlFirst + sheetIndex + urlLast;
+
+                htmlobj = $.ajax({
+                    url: url,
+                    async: false
+                });
+
+                if (htmlobj.responseText !== "對 grid_id 無效的查詢參數值。") {
+                    sheetName[sheetIndex - 1] = htmlobj.responseJSON.feed.title.$t;
+                }
+
+                console.log('htmlobj', htmlobj);
+                sheetIndex++;
+            }
+            console.log('sheetName', sheetName);
+            $("#myDiv").html(sheetName.toString());
+        });
+    </script>
     <script>
         function check(params) {
             const InputPassword = document.getElementById("Password");
