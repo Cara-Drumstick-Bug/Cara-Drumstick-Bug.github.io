@@ -32,12 +32,67 @@
         // DataTables.js
     </script>
     <script>
+        // https://matthung0807.blogspot.com/2017/08/javascript.html
+
+        function startTime() {
+            // console.log((new Date() - StartTime));
+            if ((new Date() - StartTime) > 5000000) {
+                document.location.href = "/Case/GoogleSheetFilter/index.html";
+            }
+            var timeoutId = setTimeout(startTime, 500);
+        }
+
+        var StartTime = new Date();
+        var hh = StartTime.getHours();
+        var mm = StartTime.getMinutes();
+        var ss = StartTime.getSeconds();
+        mm = checkTime(mm);
+        ss = checkTime(ss);
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        document.getElementById('clock').innerHTML = "StartTime：" + hh + ":" + mm + ":" + ss;
+
+        // https://www.runoob.com/w3cnote/js-get-url-param.html
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        var index = getQueryVariable("index");
+
+        if (getQueryVariable("name") === 'admin') {
+            // alert('Welcome to Use SecurityAudit Sheet Filter !!');
+            // https://blog.csdn.net/muzidigbig/article/details/101523197
+            var url = window.location.href;
+            var valiable = url.split("?")[0];
+            window.history.pushState({}, 0, valiable);
+        } else {
+            alert('!!! Login Please !!!');
+            document.location.href = "/Case/GoogleSheetFilter/index.html";
+        }
+
+        console.log('index', index);
+    </script>
+    <script>
         // 全域
         var GoogleSheetData;
         // 裡面就是區域無法藉由 console 直接讀取
         $(function() {
             // Get 取整包資料
-            $.get('https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/1/public/values?alt=json', function(response) {
+            $.get('https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/' + index + '/public/values?alt=json', function(response) {
                 // Google Sheet API 給的資料結構看 f12 的 console
                 console.log('※※※ response ※※※', response);
                 GoogleSheetData = response; // console 查詢用
@@ -242,57 +297,7 @@
 
         });
     </script>
-    <script>
-        // https://matthung0807.blogspot.com/2017/08/javascript.html
 
-        function startTime() {
-            // console.log((new Date() - StartTime));
-            if ((new Date() - StartTime) > 5000000) {
-                document.location.href = "/Case/GoogleSheetFilter/index.html";
-            }
-            var timeoutId = setTimeout(startTime, 500);
-        }
-
-        var StartTime = new Date();
-        var hh = StartTime.getHours();
-        var mm = StartTime.getMinutes();
-        var ss = StartTime.getSeconds();
-        mm = checkTime(mm);
-        ss = checkTime(ss);
-
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-
-        document.getElementById('clock').innerHTML = "StartTime：" + hh + ":" + mm + ":" + ss;
-
-        // https://www.runoob.com/w3cnote/js-get-url-param.html
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                if (pair[0] == variable) {
-                    return pair[1];
-                }
-            }
-            return (false);
-        }
-
-        if (getQueryVariable("name") === 'admin') {
-            // alert('Welcome to Use SecurityAudit Sheet Filter !!');
-            // https://blog.csdn.net/muzidigbig/article/details/101523197
-            var url = window.location.href;
-            var valiable = url.split("?")[0];
-            window.history.pushState({}, 0, valiable);
-        } else {
-            alert('!!! Login Please !!!');
-            document.location.href = "/Case/GoogleSheetFilter/index.html";
-        }
-    </script>
 </body>
 
 </html>
