@@ -31,7 +31,7 @@
             var htmlobj = {
                 "responseText": ""
             };
-            var sheetName = [];
+            var sheetName = "<select id='index'>";
             while (htmlobj.responseText !== "對 grid_id 無效的查詢參數值。") {
                 var url = urlFirst + sheetIndex + urlLast;
 
@@ -41,14 +41,17 @@
                 });
 
                 if (htmlobj.responseText !== "對 grid_id 無效的查詢參數值。") {
-                    sheetName[sheetIndex - 1] = htmlobj.responseJSON.feed.title.$t;
+                    sheetName += "<option value='" + sheetIndex + "'>";
+                    sheetName += htmlobj.responseJSON.feed.title.$t;
+                    sheetName += "</option>";
                 }
 
                 console.log('htmlobj', htmlobj);
                 sheetIndex++;
             }
+            var sheetName = "</select>";
             console.log('sheetName', sheetName);
-            $("#myDiv").html(sheetName.toString());
+            $("#myDiv").html(sheetName);
         });
     </script>
     <script>
