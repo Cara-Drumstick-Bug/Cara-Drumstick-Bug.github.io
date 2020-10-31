@@ -15,8 +15,8 @@ v2.
 
 v3.
 
-* index / login / select book
+* Index / Login / GoogleSheets select book
 
 v4.
 
-* export
+* Export <>
