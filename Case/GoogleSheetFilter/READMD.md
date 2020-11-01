@@ -19,4 +19,17 @@ v3.
 
 v4.
 
-* Export <>
+* Export <https://datatables.net/extensions/buttons/examples/initialisation/export.html>
+* User Feedback Issue
+  * Show entries 100 default
+  * IMG Support
+  * Clear Search Button
+  * Select Other Books
+  * Header Less Data More
+    * Title Show Book Name
+    * Input Lable Turn To Placeholder
+
+v5.
+
+* RWD <https://www.ucamc.com/e-learning/css/420-table-rwd>
+* RWD Table <https://www.sinyi.com.tw/buy/list>
