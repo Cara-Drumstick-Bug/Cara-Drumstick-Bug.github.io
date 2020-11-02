@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecurityAudit</title>
+    <title>GoogleSheetFilter</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" />
     <style>
         body {
-            padding: 7%;
+            padding: 1% 7%;
+        }
+        
+        li,
+        ul {
+            list-style-type: none
         }
     </style>
 </head>
@@ -17,20 +23,30 @@
 <!-- <body onload="startTime()"> -->
 
 <body>
-    <div id="clock"></div>
-    <h1 class="display-3">SecurityAudit</h1>
+    <h1 id="h1" class="display-6" style="display: inline-block;">SecurityAudit</h1>
+    <span style="padding-left: 2%;" id="clock"></span>
+    <input style="margin-left: 2%;" type="button" onclick="ClearSearch()" value="清除查詢" class="dt-button buttons-print" />
     <hr class="w-100" />
     <div class="row">
-        <div id="searchTable" style="width:100vw;margin-bottom:1%;" width="100%"></div>
+        <div id="searchTable" width="100%"></div>
         <hr class="w-100" />
-        <table id="dataTable" class="display" style="width:100vw;margin-top:1%;" width="100%"></table>
+        <table id="dataTable" class="display" style="width:100vw" width="100%"></table>
     </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'>
+    <script src='https://code.jquery.com/jquery-3.5.1.js'>
         // jquery.js
     </script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         // DataTables.js
     </script>
+    <!-- export 相關 -->
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
+    <!-- export 相關 -->
     <script>
         // https://matthung0807.blogspot.com/2017/08/javascript.html
 
@@ -89,6 +105,7 @@
     <script>
         // 全域
         var GoogleSheetData;
+        var stheader = [];
         // 裡面就是區域無法藉由 console 直接讀取
         $(function() {
             // Get 取整包資料
@@ -202,7 +219,7 @@
                 // ★★★★★ 接著引入 DataTable.js 函式庫，做渲染刷新，即完成 ★★★★★
                 // ★★★★★ 這邊我們就回到之前的專案直接 copy 自己寫的東西... ★★★★★
 
-                var stheader = [];
+
                 HeadArrayForSetData.forEach(FilterHeader);
 
                 function FilterHeader(params) {
@@ -217,14 +234,18 @@
                 //生成 SearchTable
                 console.log('★★★ SearchTable Set ★★★');
 
-                let st_html = "<ul style='display:flex;flex-wrap:wrap;justify-content:flex-start;'>";
+                let st_html = "<ul style='display:flex;flex-wrap:wrap;justify-content:flex-start;    margin-bottom: 0;padding: 0;'>";
 
                 for (let i = 0; i < stheader.length; i++) {
 
-                    st_html += '<li style="width: 25%;" data-column="' + (i + 1) + '"><label for="stheader_' + (i + 1) + '">' + stheader[i];
-                    st_html += '</label> (智慧搜尋 <input type="checkbox" class="column_filter" id="stheader_smart_' + (i + 1);
-                    st_html += '" checked="checked">)<input class="column_filter" type="text" id="stheader_' + (i + 1);
+                    st_html += '<li style="width: 12.5%;" data-column="' + (i + 1) + '">';
+                    st_html += '<input placeholder="' + stheader[i] + '" class="column_filter" type="text" id="stheader_' + (i + 1);
                     st_html += '" style="margin-left:3%;"/></li >';
+
+                    // st_html += '<li style="width: 25%;" data-column="' + (i + 1) + '"><label for="stheader_' + (i + 1) + '">' + stheader[i];
+                    // st_html += '</label> (智慧搜尋 <input type="checkbox" class="column_filter" id="stheader_smart_' + (i + 1);
+                    // st_html += '" checked="checked">)<input class="column_filter" type="text" id="stheader_' + (i + 1);
+                    // st_html += '" style="margin-left:3%;"/></li >';
 
                     // console.log('st_html_Set', st_html);
 
@@ -244,6 +265,30 @@
                 console.log('★★★ DataTable Set ★★★');
                 var dt = $('#dataTable').DataTable({
                     responsive: true,
+                    iDisplayLength: 100,
+                    dom: 'Bfrtip',
+                    buttons: ['copy', 'excel', 'print'],
+                    language: {
+                        "processing": "處理中...",
+                        "loadingRecords": "載入中...",
+                        "lengthMenu": "顯示 _MENU_ 項結果",
+                        "zeroRecords": "沒有符合的結果",
+                        "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+                        "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+                        "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+                        "infoPostFix": "",
+                        "search": "搜尋:",
+                        "paginate": {
+                            "first": "第一頁",
+                            "previous": "上一頁",
+                            "next": "下一頁",
+                            "last": "最後一頁"
+                        },
+                        "aria": {
+                            "sortAscending": ": 升冪排列",
+                            "sortDescending": ": 降冪排列"
+                        }
+                    },
                     columns: HeadArray,
                     columnDefs: [{
 
@@ -293,10 +338,20 @@
                 console.log('★★★ function End ★★★');
 
                 console.log('★★★ async function End ★★★');
+
+                // sTitle
+                $("#h1").text(GoogleSheetData.feed.title.$t);
             });
 
-
         });
+
+        function ClearSearch() {
+            stheader.forEach((value, index) => {
+                console.log('★★★ foreach value ★★★', value),
+                    console.log('★★★ foreach index ★★★', index),
+                    $('#stheader_' + (index + 1)).val("");
+            })
+        }
     </script>
 
 </body>
