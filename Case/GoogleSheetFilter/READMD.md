@@ -28,6 +28,7 @@ v4.
   * Header Less Data More
     * Title Show Book Name
     * Input Lable Turn To Placeholder
+  * Info Change <https://stackoverflow.com/questions/45085026/how-to-change-datatables-text-showing-page-1-of-5-of-x-entries/45085239>
 
 v5.
 
