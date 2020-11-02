@@ -11,7 +11,7 @@ v2.
 
 * 網路版本 <https://github.com/johch3n611u/Side-Project-GoogleSheets-to-WebDatabase>
 * GoogleSheets API <https://developers.google.com/sheets/api>
-* Datatable.js
+* Datatables.js
 
 v3.
 
