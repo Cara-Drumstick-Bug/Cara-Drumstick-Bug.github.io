@@ -13,10 +13,10 @@
     <!-- https://pjchender.blogspot.com/2015/11/javascript.html -->
     <!-- https://andy6804tw.github.io/2018/01/06/bootstrap-tutorial(1)/ -->
     <div class="row justify-content-center" style="height:100vh;">
+        <div class="w3-border">
+               <div class="w3-grey" style="height:24px;width:0%"></div>
+        </div>
         <div class="align-self-center">
-            <div class="w3-border">
-               <div class="w3-grey" style="height:24px;width:20%"></div>
-            </div>
             <label for="Password">Admin：</label>
             <input type="password" id="Password" placeholder="Password">
             <span id="myDiv"></span>
@@ -25,7 +25,7 @@
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
     <script>
-        var progressBar;
+        var progressBar = 0;
         $(document).ready(function() {
             var urlFirst = 'https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/';
             var sheetIndex = 1;
@@ -50,7 +50,11 @@
 
                 console.log('htmlobj', htmlobj);
                 sheetIndex++;
+                
+                progressBar+= 10;
+                $('.w3-grey').attr("width",progressBar+"%");
             }
+            $('.w3-grey').attr("width","100%");
             sheetName += "</select>";
             console.log('sheetName', sheetName);
             $("#myDiv").html(sheetName);
