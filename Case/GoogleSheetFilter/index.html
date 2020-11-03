@@ -46,21 +46,21 @@
                     sheetName += "</option>";
                 }
 
-                console.log('htmlobj', htmlobj);
+                // console.log('htmlobj', htmlobj);
                 sheetIndex++;
             }
             sheetName += "</select>";
-            console.log('sheetName', sheetName);
+            // console.log('sheetName', sheetName);
             $("#myDiv").html(sheetName);
         });
     </script>
     <script>
         function check(params) {
             const InputPassword = document.getElementById("Password");
-            console.log(InputPassword);
-            console.log(InputPassword.value);
+            // console.log(InputPassword);
+            // console.log(InputPassword.value);
             InputPassword.value = InputPassword.value.toLowerCase();
-            console.log(InputPassword.value);
+            // console.log(InputPassword.value);
 
             if (InputPassword.value === 'admin') {
                 // https://www.wibibi.com/info.php?tid=153
