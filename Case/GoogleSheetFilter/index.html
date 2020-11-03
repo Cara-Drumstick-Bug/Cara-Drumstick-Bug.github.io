@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoogleSheetFilter</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body class="container">
@@ -16,6 +14,9 @@
     <!-- https://andy6804tw.github.io/2018/01/06/bootstrap-tutorial(1)/ -->
     <div class="row justify-content-center" style="height:100vh;">
         <div class="align-self-center">
+            <div class="w3-border">
+               <div class="w3-grey" style="height:24px;width:0%"></div>
+            </div>
             <label for="Password">Admin：</label>
             <input type="password" id="Password" placeholder="Password">
             <span id="myDiv"></span>
@@ -24,6 +25,7 @@
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
     <script>
+        var progressBar = 0;
         $(document).ready(function() {
             var urlFirst = 'https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/';
             var sheetIndex = 1;
@@ -48,7 +50,11 @@
 
                 // console.log('htmlobj', htmlobj);
                 sheetIndex++;
+                
+                progressBar+= 10;
+                $('.w3-grey').attr("width",progressBar+"%");
             }
+            $('.w3-grey').attr("width","100%");
             sheetName += "</select>";
             // console.log('sheetName', sheetName);
             $("#myDiv").html(sheetName);

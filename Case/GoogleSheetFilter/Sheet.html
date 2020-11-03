@@ -267,8 +267,7 @@
                 dt = $('#dataTable').DataTable({
                     responsive: true,
                     iDisplayLength: 100,
-                    dom: 'Bfrtip',
-                    buttons: ['copy', 'excel', 'print'],
+                    // dom: 'Bfrtip',
                     language: {
                         "processing": "處理中...",
                         "loadingRecords": "載入中...",
@@ -347,12 +346,22 @@
         });
 
         function ClearSearch() {
-            dt.search('').draw();
-            stheader.forEach((value, index) => {
-                // console.log('★★★ foreach value ★★★', value),
-                // console.log('★★★ foreach index ★★★', index),
-                $('#stheader_' + (index + 1)).val("");
-            })
+            alert('施工中，v4 版本更新如下 \n * IMG Display \n * Clear All Search \n v5 預計更新 RWD 手機版頁面');
+            // stheader.forEach((value, index) => {
+            //  console.log('★★★ foreach value ★★★', value),
+            //   console.log('★★★ foreach index ★★★', index),
+            //  $('#stheader_' + (index + 1)).val("");
+            //  })
+            //   dt.on('order.dt search.dt', function() {
+            //   dt.column(0, {
+            //       search: 'applied',
+            //        order: 'applied'
+            //      }).nodes().each(
+            //          function(cell, i) {
+            //              cell.innerHTML = i + 1;
+            //           }
+            //         );
+            //     }).draw();
         }
     </script>
 
