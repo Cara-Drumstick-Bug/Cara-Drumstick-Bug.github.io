@@ -45,7 +45,7 @@
     <h1 id="h1" class="display-6" style="display: inline-block;">GoogleSheetFilter</h1>
     <span style="padding-left: 2%;padding-right: 2%;" id="clock"></span>
     <!-- <input style="margin-left: 2%;" type="button" onclick="ClearSearch()" value="清除查詢" class="dt-button buttons-print" /> -->
-    <button class='phone col-12 btn badge badge-secondary' onclick="PickUP()"> 展開進階查詢功能 </button>
+    <button class='phone col-12 btn badge badge-secondary' onclick="PickUP()"> 展開或收合進階查詢功能 </button>
     <hr class="w-100" />
     <div class="">
         <div id="searchTable" width="100%"></div>
@@ -116,7 +116,7 @@
             var valiable = url.split("?")[0];
             window.history.pushState({}, 0, valiable);
         } else {
-            alert('!!! Login Please !!!');
+            alert('!!! 請選擇表單 !!!');
             document.location.href = "/Case/GoogleSheetFilter/index.html";
         }
 
@@ -297,7 +297,7 @@
                         "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
                         "infoFiltered": "(從 _MAX_ 項結果中過濾)",
                         "infoPostFix": "",
-                        "search": "搜尋:",
+                        "search": "使用方式 ( 排序：點擊參數▲▼即可排序 / 快速搜尋：參數 空隔 參數 - 例如：2021 自 33 ) - - - - - - - - - 搜尋：",
                         "paginate": {
                             "first": "第一頁",
                             "previous": "上一頁",
