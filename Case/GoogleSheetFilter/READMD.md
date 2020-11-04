@@ -26,9 +26,9 @@ v4.
 * User Feedback Issue
   * Show entries 100 default <https://stackoverflow.com/questions/10630853/change-values-of-select-box-of-show-10-entries-of-jquery-datatable>
   * IMG Support <https://stackoverflow.com/questions/46063474/how-to-display-image-in-datatable>
-  * IMG 目前尚未實作，等後續有需求再繼續。
+    * 目前尚未實作，等後續有需求再繼續。
   * Clear Search Button
-  * Select Other Books
+    * 目前尚未實作，卡在 while loop 與 jq attr 問題無解，等後續有需求再繼續。
   * Header Less Data More
     * Title Show Book Name
     * Input Lable Turn To Placeholder
@@ -40,6 +40,7 @@ v5.
 
 * RWD <https://www.ucamc.com/e-learning/css/420-table-rwd>
 * RWD Table <https://www.sinyi.com.tw/buy/list>
+* Inside Book Select Other Books
 
 vFuture.
 
