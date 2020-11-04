@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoogleSheetFilter</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" />
     <style>
         body {
             padding: 1% 7%;
         }
-        
+
         li,
         ul {
             list-style-type: none
         }
-        
+
         .phone {
             margin: 2% 2%;
             display: none;
         }
-        
+
         .phone:hover {
             color: white;
             background-color: black;
         }
-        
+
         @media screen and (max-width: 479px) {
             .phone {
                 display: block;
             }
+
             .phoneSearch {
                 display: none;
             }
@@ -42,9 +44,10 @@
 <!-- <body onload="startTime()"> -->
 
 <body>
-    <h1 id="h1" class="display-6" style="display: inline-block;">v5 - © 2020.11 Made by johch3n611u all rights reserved.</h1>
+    <h1 id="h1" class="display-6" style="display: inline-block;">v4 - © 2020.11 Made by johch3n611u all rights reserved.
+    </h1>
     <span style="padding-left: 2%;padding-right: 2%;" id="clock"></span>
-    <span>v5 - © 2020.11 Made by johch3n611u all rights reserved.</span>
+    <span>v4 - © 2020.11 Made by johch3n611u all rights reserved.</span>
     <!-- <input style="margin-left: 2%;" type="button" onclick="ClearSearch()" value="清除查詢" class="dt-button buttons-print" /> -->
     <button class='phone col-12 btn badge badge-secondary' onclick="PickUP()"> 展開或收合進階查詢功能 </button>
     <hr class="w-100" />
@@ -53,7 +56,7 @@
         <hr class="w-100" />
         <table id="dataTable" class="display" style="width:100vw" width="100%"></table>
     </div>
-    <p style="text-align: center;">v5 - © 2020.11 Made by johch3n611u all rights reserved.</p>
+    <p style="text-align: center;">v4 - © 2020.11 Made by johch3n611u all rights reserved.</p>
     <script src='https://code.jquery.com/jquery-3.5.1.js'>
         // jquery.js
     </script>
@@ -130,9 +133,9 @@
         var stheader = [];
         var dt;
         // 裡面就是區域無法藉由 // console 直接讀取
-        $(function() {
+        $(function () {
             // Get 取整包資料
-            $.get('https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/' + index + '/public/values?alt=json', function(response) {
+            $.get('https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/' + index + '/public/values?alt=json', function (response) {
                 // Google Sheet API 給的資料結構看 f12 的 // console
                 // console.log('※※※ response ※※※', response);
                 GoogleSheetData = response; // // console 查詢用
@@ -157,7 +160,7 @@
                 // ★★★★★ 用一筆資料 整理頁首就夠了 ★★★★★
                 // // console.log('※※※ Object.keys(data.feed.entry) ※※※', Object.keys(data.feed.entry));
                 Object.keys(response.feed.entry[0]).forEach(
-                    function(key) {
+                    function (key) {
                         var value = response.feed.entry[0][key];
                         // // console.log('※※※ value ※※※', value);
                         // // console.log('※※※ key ※※※', key);
@@ -168,7 +171,7 @@
                         if (key.includes('gsx$')) {
                             // // console.log('※※※ key ※※※', key)
                             key = key.replace('gsx$', '')
-                                // // console.log('※※※ key.replace("gsx$","") ※※※', key)
+                            // // console.log('※※※ key.replace("gsx$","") ※※※', key)
                             HeadObject = {
                                 title: key,
                                 sTitle: key
@@ -323,12 +326,12 @@
                     data: DateArray,
                     destroy: true //Cannot reinitialise DataTable,解决重新加载表格内容问题
                 });
-                dt.on('order.dt search.dt', function() {
+                dt.on('order.dt search.dt', function () {
                     dt.column(0, {
                         search: 'applied',
                         order: 'applied'
                     }).nodes().each(
-                        function(cell, i) {
+                        function (cell, i) {
                             cell.innerHTML = i + 1;
                         }
                     );
@@ -340,7 +343,7 @@
 
                 // console.log('$("input.column_filter")', $('input.column_filter'))
 
-                $('input.column_filter').on('keyup click', function() {
+                $('input.column_filter').on('keyup click', function () {
                     // console.log('★★★ keyup click ★★★');
                     // // console.log('$(this).parents("li").attr("data - column")', $(this).parents('li').attr('data-column'));
                     filterColumn($(this).parents('li').attr('data-column'));

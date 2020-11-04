@@ -22,12 +22,11 @@ v3.
 
 v4.
 
-* Export <https://datatables.net/extensions/buttons/examples/initialisation/export.html>
 * User Feedback Issue
   * Show entries 100 default <https://stackoverflow.com/questions/10630853/change-values-of-select-box-of-show-10-entries-of-jquery-datatable>
   * Header Less Data More
     * Title Show Book Name
-    * Input Lable Turn To Placeholder
+    * Input Label Turn To Placeholder
   * Info Change <https://stackoverflow.com/questions/45085026/how-to-change-datatables-text-showing-page-1-of-5-of-x-entries/45085239>
 * W3.CSS Progress Bars <https://www.w3schools.com/w3css/w3css_progressbar.asp>
   * Progress Bars 因為 while loop 與 jq attr 問題無解，改由別種方式完成此功能。
@@ -35,6 +34,7 @@ v4.
 v5.
 
 * 以下內容目前尚未實作，等後續有需求再繼續。
+* Export <https://datatables.net/extensions/buttons/examples/initialisation/export.html>
 * RWD Table <https://www.ucamc.com/e-learning/css/420-table-rwd>
 * RWD Example <https://www.sinyi.com.tw/buy/list>
 * Inside Book Select Other Books
