@@ -7,26 +7,22 @@
     <title>GoogleSheetFilter</title>
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
-<body class="container">
+<body class="container" style="height:100vh;">
     <!-- https://pjchender.blogspot.com/2015/11/javascript.html -->
     <!-- https://andy6804tw.github.io/2018/01/06/bootstrap-tutorial(1)/ -->
-    <div class="row justify-content-center" style="height:100vh;">
-        <div class="align-self-center">
-            <div class="w3-border">
-                <div class="w3-grey" style="height:24px;width:0%"></div>
-            </div>
+    <div class="row justify-content-center" style="height:80vh;">
+        <!-- <img class="align-self-center" id="loading" src="/Case/GoogleSheetFilter/giphy.gif" alt="loading" style="height: auto;width: 30%;"> -->
+        <div class="align-self-center" style="margin: 0 16.5%;">
             <label for="Password">Admin：</label>
-            <input type="password" id="Password" placeholder="Password">
-            <span id="myDiv"></span>
-            <button id="CheckButton" type="button" class="btn badge badge-primary" onclick="check()">驗證</button>
+            <input type="password" id="Password" placeholder="Password" value="Admin">
+            <div id="myDiv"> 載入資料表中請稍後... </div>
         </div>
     </div>
+    <p style="text-align: center;">v5 - © 2020.11 Made by johch3n611u all rights reserved.</p>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
     <script>
-        var progressBar = 0;
         $(document).ready(function () {
             var urlFirst = 'https://spreadsheets.google.com/feeds/list/1u6CNgegIsg6EMMb6EoHzMLu9IAIQYoghqPbqY96xpq0/';
             var sheetIndex = 1;
@@ -35,6 +31,7 @@
                 "responseText": ""
             };
             var sheetName = "<select id='index'>";
+
             while (htmlobj.responseText !== "對 grid_id 無效的查詢參數值。") {
                 var url = urlFirst + sheetIndex + urlLast;
 
@@ -49,27 +46,25 @@
                     sheetName += "</option>";
                 }
 
-                console.log('htmlobj', htmlobj);
+                // console.log('htmlobj', htmlobj);
                 sheetIndex++;
-
-                progressBar += 10;
-                var progressString = "height:24px;width:" + progressBar + "%;";
-                console.log('progressString', "height:24px;width:50%;");
-                $('.w3-grey').attr("style", progressString);
             }
-            $('.w3-grey').attr("style", "height:24px;width:100%;");
+
             sheetName += "</select>";
-            console.log('sheetName', sheetName);
+            // console.log('sheetName', sheetName);
+            sheetName += "<button id='CheckButton' type='button' class='btn badge badge-secondary' onclick='check()'>驗證</button>"
             $("#myDiv").html(sheetName);
         });
+
+        // $('#loading').attr("style", "display:none;");
     </script>
     <script>
         function check(params) {
             const InputPassword = document.getElementById("Password");
-            console.log(InputPassword);
-            console.log(InputPassword.value);
+            // console.log(InputPassword);
+            // console.log(InputPassword.value);
             InputPassword.value = InputPassword.value.toLowerCase();
-            console.log(InputPassword.value);
+            // console.log(InputPassword.value);
 
             if (InputPassword.value === 'admin') {
                 // https://www.wibibi.com/info.php?tid=153
