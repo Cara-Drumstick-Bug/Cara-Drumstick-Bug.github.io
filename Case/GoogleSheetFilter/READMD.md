@@ -36,6 +36,7 @@ v5.
 * 以下內容目前尚未實作，等後續有需求再繼續。
 * Export <https://datatables.net/extensions/buttons/examples/initialisation/export.html>
 * RWD Table <https://www.ucamc.com/e-learning/css/420-table-rwd>
+  * 抓取篩選資料，渲染成以下 RWD 格式 <https://stackoverflow.com/questions/33169649/how-to-get-filtered-data-result-set-from-jquery-datatable>
 * RWD Example <https://www.sinyi.com.tw/buy/list>
 * Inside Book Select Other Books
 * IMG Support <https://stackoverflow.com/questions/46063474/how-to-display-image-in-datatable>
