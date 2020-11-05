@@ -44,6 +44,7 @@ v5.
 
 vFuture.
 
+* Pick Selected Export or DoSomeThing... <https://datatables.net/extensions/select/examples/api/get.html>
 * GA 追蹤使用者資訊
 * Chart.js 仿 BI 報表分析
 * Line API 相關應用
