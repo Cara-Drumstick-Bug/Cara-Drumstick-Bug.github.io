@@ -43,9 +43,12 @@ v5.
 * Clear Search Button
   * 卡在 while loop 與 jq attr 問題無解，等後續有需求再繼續。
 
+v6.
+
+* 為了追蹤使用者資訊分析所以優先實作 GA
+
 vFuture.
 
 * Pick Selected Export or DoSomeThing... <https://datatables.net/extensions/select/examples/api/get.html>
-* GA 追蹤使用者資訊
 * Chart.js 仿 BI 報表分析
 * Line API 相關應用
