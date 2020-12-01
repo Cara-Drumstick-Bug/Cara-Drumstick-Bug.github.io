@@ -45,7 +45,7 @@ v5.
 
 v6.
 
-* 為了追蹤使用者資訊分析所以優先實作 GA
+* 為了追蹤使用者資訊分析所以優先實作 GA <https://github.com/johch3n611u/Side-Project-GoogleSheets-to-WebDatabase/blob/main/HowToGoogleAnalytics.md>
 
 vFuture.
 
