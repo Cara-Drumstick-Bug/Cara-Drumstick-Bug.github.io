@@ -8,6 +8,8 @@
 2. 有 => 直接 MVP、ABTEST、追蹤並改善，一步步提升技術競爭力避免低價殺頭
 3. 有 => 參與各種競賽，測驗技術、間接行銷等等...
 
+<https://www.youtube.com/watch?v=uaPyzP3PsCw&list=UUr7GjHXlkad7hMcXMc-R3ag&index=23&ab_channel=BigBoyCanCode>
+
 ## 參考
 
 * <https://daotw.com/%E5%B8%82%E5%A0%B4%E5%88%86%E6%9E%90/>
